@@ -9,10 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var ballUIImageView: UIImageView!
+    @IBOutlet weak var AskButtonOutlet: UIButton!
+    let ballArray = [#imageLiteral(resourceName: "ball3"),#imageLiteral(resourceName: "ball4"),#imageLiteral(resourceName: "ball1"),#imageLiteral(resourceName: "ball5"),#imageLiteral(resourceName: "ball2")]
     
-    let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            AskButtonOutlet.layer.cornerRadius = 20.0
+            AskButtonOutlet.layer.masksToBounds = true
+        }
 
-
-
+    @IBAction func askButtonTupped(_ sender: Any) {
+        ballUIImageView.image = ballArray.randomElement()
+    }
+    
 }
 
